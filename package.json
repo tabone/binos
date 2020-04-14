@@ -1,0 +1,32 @@
+{
+  "name": "binos",
+  "version": "1.0.0",
+  "description": "a-star pathfinder with weights",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tabone/binos.git"
+  },
+  "keywords": [
+    "a",
+    "star",
+    "pathfinder",
+    "path",
+    "finder",
+    "ai",
+    "weight"
+  ],
+  "author": "Luca Tabone <taboneluca3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tabone/binos/issues"
+  },
+  "homepage": "https://github.com/tabone/binos#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
