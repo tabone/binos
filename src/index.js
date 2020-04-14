@@ -36,7 +36,7 @@ module.exports = function newMap (nodesInfo) {
   }
 
   function createPath (node, path = []) {
-    path.push(createCoordsIndex(node))
+    path.push({ x: node.x, y: node.y})
     if (node.parentNode != null) createPath(node.parentNode, path)
     return path
   }

@@ -5,7 +5,7 @@ Simple a-star pathfinder.
 ```javascript
 'use strict'
 
-const newMap = require('../')
+const newMap = require('../dist/index.js')
 
 const getPath = newMap([
   { x: 0, y: 0, weight: 0.5 },
@@ -36,5 +36,12 @@ const getPath = newMap([
 ])
 
 console.log(getPath({ x: 0, y: 0 }, { x: 4, y: 4 }))
-// => [ '4-4', '3-3', '2-2', '1-1', '0-0' ]
+// => [
+//   { x: 4, y: 4 },
+//   { x: 3, y: 3 },
+//   { x: 2, y: 2 },
+//   { x: 1, y: 1 },
+//   { x: 0, y: 0 }
+// ]
+
 ```
