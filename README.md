@@ -35,7 +35,9 @@ const getPath = newMap([
   { x: 4, y: 4, weight: 0 }
 ])
 
-console.log(getPath({ x: 0, y: 0 }, { x: 4, y: 4 }))
+console.log(
+  getPath({ x: 0, y: 0 }, { x: 4, y: 4 }, { diagonals: true })
+)
 // => [
 //   { x: 4, y: 4 },
 //   { x: 3, y: 3 },

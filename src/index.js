@@ -41,7 +41,11 @@ module.exports = function newMap (nodesInfo) {
     return path
   }
 
-  return function getPath (startCoords, destinationCoords) {
+  return function getPath (startCoords, destinationCoords, opts = {}) {
+    const {
+      diagonals = true
+    } = opts
+
     let nodes = {}
 
     function createNode (coord, parentNode) {
@@ -95,16 +99,23 @@ module.exports = function newMap (nodesInfo) {
     ) {
       currentNode.visited = true
 
-      ;[
+      const neighbours = [
         { x: currentNode.x, y: currentNode.y + 1 },
         { x: currentNode.x, y: currentNode.y - 1 },
         { x: currentNode.x - 1, y: currentNode.y },
-        { x: currentNode.x - 1, y: currentNode.y + 1 },
-        { x: currentNode.x - 1, y: currentNode.y - 1 },
-        { x: currentNode.x + 1, y: currentNode.y },
-        { x: currentNode.x + 1, y: currentNode.y + 1 },
-        { x: currentNode.x + 1, y: currentNode.y - 1 }
-      ].forEach(coords => createNode(coords, currentNode))
+        { x: currentNode.x + 1, y: currentNode.y }
+      ]
+
+      if (diagonals === true) {
+        neighbours.push(
+          { x: currentNode.x - 1, y: currentNode.y + 1 },
+          { x: currentNode.x - 1, y: currentNode.y - 1 },
+          { x: currentNode.x + 1, y: currentNode.y + 1 },
+          { x: currentNode.x + 1, y: currentNode.y - 1 }
+        )
+      }
+
+      neighbours.forEach(coords => createNode(coords, currentNode))
 
       currentNode = Object.keys(nodes).reduce((newCurrentNode, coordsIndex) => {
         const node = nodes[coordsIndex]
