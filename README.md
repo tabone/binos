@@ -19,8 +19,7 @@ Field|Type|Description
 -|-|-
 `x`|`Number`|X Coordinate.
 `y`|`Number`|Y Coordinate.
-`weight`|`Number`|Weight of tile, ranging from 0 (best weight) to 1 (worst
-weight).
+`weight`|`Number`|Weight of tile, ranging from 0 (best weight) to 1 (worst weight).
 
 > NOTE: A node with weight of `1` is unpassable.
 
