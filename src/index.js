@@ -43,7 +43,8 @@ module.exports = function newMap (nodesInfo) {
 
   return function getPath (startCoords, destinationCoords, opts = {}) {
     const {
-      diagonals = true
+      diagonals = true,
+      calculateG = getDistance
     } = opts
 
     let nodes = {}
@@ -63,7 +64,15 @@ module.exports = function newMap (nodesInfo) {
         h: getDistance(nodeInfo, destinationCoords),
         g: (
           parentNode == null ? 0 : (
-            getDistance(nodeInfo, parentNode) + parentNode.g
+            parentNode.g + calculateG(
+              {
+                x: nodeInfo.x,
+                y: nodeInfo.y
+              }, {
+                x: parentNode.x,
+                y: parentNode.y
+              }
+            )
           )
         ),
         get f () {
